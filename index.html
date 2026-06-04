@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Para Luna ✨</title>
+
+<!-- FUENTE -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+    #barra{
+
+position:fixed;
+
+top:0;
+left:0;
+
+height:4px;
+
+width:0%;
+
+background:white;
+
+z-index:9999;
+
+transition:.5s;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    overflow:hidden;
+    background:black;
+}
+
+/* SLIDES */
+
+.slide{
+
+    width:100vw;
+    height:100vh;
+
+    position:absolute;
+    top:0;
+    left:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    opacity:0;
+    pointer-events:none;
+
+    padding:20px;
+
+    transition:
+    opacity 1s ease,
+    transform 1s ease;
+
+    transform:scale(1.05);
+}
+/* ACTIVA */
+
+.activo{
+
+    opacity:1;
+
+    pointer-events:auto;
+
+    transform:scale(1);
+}
+
+/* FONDOS */
+
+#s0{
+    background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url('https://wallpaperaccess.com/full/148432.jpg');
+    background-size:cover;
+    background-position:center;
+}
+
+#s1{
+    background:
+    linear-gradient(rgba(0,0,0,.60),rgba(0,0,0,.60)),
+    url('s2.jpg');
+    background-size:cover;
+    background-position:center;
+}
+
+#s2{
+    background:
+    linear-gradient(rgba(0,0,0,.60),rgba(0,0,0,.60)),
+    url('s3.jpg');
+    background-size:cover;
+    background-position:center;
+}
+
+#s3{
+    background:
+    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
+    url('s3.jpg');
+    background-size:cover;
+    background-position:center;
+}
+
+#s4{
+    background:
+    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
+    url('https://images.unsplash.com/photo-1511988617509-a57c8a288659?q=80&w=1400&auto=format&fit=crop');
+    background-size:cover;
+    background-position:center;
+}
+
+/* CAJA CENTRAL */
+
+.contenido{
+    width:85%;
+    max-width:900px;
+
+    background:rgba(255,255,255,.10);
+
+backdrop-filter:blur(15px);
+
+box-shadow:
+0 10px 40px rgba(0,0,0,.4);
+
+    border:1px solid rgba(255,255,255,.2);
+
+    border-radius:30px;
+
+    padding:40px;
+
+    text-align:center;
+
+    color:white;
+
+    animation:aparecer 1s ease;
+}
+
+/* TITULOS */
+
+h1{
+    font-size:55px;
+    margin-bottom:20px;
+}
+
+/* TEXTO */
+
+p{
+    font-size:22px;
+    line-height:1.8;
+    font-weight:300;
+}
+
+/* BOTON */
+
+button{
+    margin-top:35px;
+
+    padding:15px 35px;
+
+    border:none;
+
+    border-radius:40px;
+
+    background:white;
+
+    color:black;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.08);
+}
+
+/* MARCO PARA FOTO */
+
+.marco{
+    width:250px;
+    height:250px;
+
+    margin:25px auto;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    border:4px solid white;
+
+    box-shadow:0 0 25px rgba(255,255,255,.25);
+}
+
+.marco img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* ESTRELLAS */
+
+.estrellas{
+    position:absolute;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    z-index:-1;
+}
+
+.estrella{
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:white;
+    border-radius:50%;
+    animation:brillar 3s infinite;
+}
+
+/* ANIMACIONES */
+
+@keyframes aparecer{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes brillar{
+
+    0%{
+        opacity:.2;
+    }
+
+    50%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:.2;
+    }
+
+}
+
+/* CELULAR */
+
+@media(max-width:768px){
+
+    h1{
+        font-size:38px;
+    }
+
+    p{
+        font-size:18px;
+    }
+
+    .contenido{
+        padding:25px;
+        width:95%;
+    }
+
+    .marco{
+        width:200px;
+        height:200px;
+    }
+
+}
+
+/* CURSOR PARPADEANTE */
+
+#maquina::after{
+
+    content:"|";
+
+    animation:parpadeo .8s infinite;
+
+}
+
+@keyframes parpadeo{
+
+    50%{
+        opacity:0;
+    }
+
+}
+
+/* BOTON OCULTO */
+
+#botonIntro{
+
+    opacity:0;
+
+    transition:1s;
+
+}
+
+.final{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:40px;
+}
+
+.textoFinal{
+    flex:1;
+    text-align:left;
+}
+
+.fotosFinal{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.galeria img{
+
+width:220px;
+
+height:220px;
+
+object-fit:cover;
+
+border-radius:20px;
+
+border:3px solid white;
+
+flex-shrink:0;
+}
+.galeria{
+
+display:flex;
+
+gap:15px;
+
+overflow-x:auto;
+
+margin:25px 0;
+}
+
+.galeria img{
+
+width:220px;
+
+height:220px;
+
+object-fit:cover;
+
+border-radius:20px;
+
+border:3px solid white;
+
+flex-shrink:0;
+}
+</style>
+</head>
+
+<body>
+    <div id="barra"></div>
+
+<!-- ESTRELLAS -->
+
+<div class="estrellas" id="estrellas"></div>
+
+<!-- SLIDE 1 -->
+
+<div class="slide activo" id="s0">
+
+    <div class="contenido">
+
+        <h1>🎓 Bienvenida, Luna</h1>
+
+        <p id="maquina"></p>
+            
+        
+
+        <button id="botonIntro" onclick="siguiente()">
+            Entrar
+        </button>
+
+    </div>
+
+</div>
+
+<!-- SLIDE 2 -->
+
+<div class="slide" id="s1">
+
+    <div class="contenido">
+
+        <h1>💖 Hola, Luna</h1>
+
+        <div class="marco">
+
+            <!-- CAMBIA ESTA FOTO -->
+            <img src="info.jpg">
+
+        </div>
+
+        <p>
+            Inicié este proyecto 6 meses antes de tu graduación,
+            sabiendo que duarente mi ultimo semestre aprenderia algo de programacion y sabiendo que talvez no podria estar ahi.<br><br>
+
+            Pero aun así quería crear algo especial para ti.
+        </p>
+
+        <button onclick="siguiente()">
+            Siguiente
+        </button>
+
+    </div>
+
+</div>
+
+<!-- SLIDE 3 -->
+
+<div class="slide" id="s2">
+
+    <div class="contenido">
+
+        <h1>✨ mi proyecto</h1>
+
+        <p>
+            Cuando aprendí programación,
+            pensé que sería buena idea usar todo lo que aprendiera
+            para crear una página increible dedicada a una persona muy especial.<br><br>
+
+           y genuinamene sigo pensando que es una idea muy original (supongo que es como mi version de
+            cuando los adultos se hacian videos con musica de chayanne)
+        </p>
+
+        <button onclick="siguiente()">
+            Siguiente
+        </button>
+
+    </div>
+
+</div>
+<div class="slide" id="s3a">
+
+    <div class="contenido">
+
+        <h1>💻 Detrás del código</h1>
+
+        <div class="marco">
+            <img src="codigo.jpg">
+        </div>
+
+        <p>
+
+            Aunque esta página parece sencilla,
+            detrás de ella hubo muchas horas de trabajo.
+
+            <br><br>
+
+            Hubo errores que no entendía,
+            cosas que se rompían sin razón
+            y momentos en los que pensé en rendirme.
+
+            <br><br>
+
+            Pero siempre recordaba para quién estaba haciendo todo esto.
+
+        </p>
+
+        <button onclick="siguiente()">
+
+            Siguiente
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- SLIDE 4 -->
+
+<div class="slide" id="s3">
+
+    <div class="contenido">
+
+        <h1>🌙 ¿Quién es Luna?</h1>
+
+        <p>
+            Creo que Luna es una persona demasiado compleja para describir
+            sin embargo, igual lo intentare.<br><br>
+
+            para mi luna es una niña bastante loca e impredecible, agluien que muy en su 
+            interior siepre cree tener larazon<br><br>
+
+            Pero mientras más la conoces,
+            te puedes dar cuenta de que es una persona llena de matizes y profundidad en sus pensamientos
+        </p>
+
+        <button onclick="siguiente()">
+            Siguiente
+        </button>
+
+    </div>
+
+</div>
+
+<div class="slide" id="s3b">
+
+<div class="contenido">
+
+<h1>📸 Algunos recuerdos</h1>
+
+<div class="galeria">
+
+<img src="foto1.jpg">
+
+<img src="foto2.jpg">
+
+<img src="foto3.jpg">
+
+<img src="foto4.jpg">
+
+<img src="foto5.jpg">
+
+</div>
+
+<p>
+
+Cada foto guarda una historia.
+
+Y aunque el tiempo pase,
+siempre será bonito volver a ellas.
+
+</p>
+
+<button onclick="siguiente()">
+
+Siguiente
+
+</button>
+
+</div>
+
+</div>
+
+<!-- SLIDE 5 -->
+
+<div class="slide" id="s4">
+
+    <div class="contenido final">
+
+        <h1>💌 tsitp </h1>
+
+        <p>
+           recuerdas a sheyla? recuerdo cuando la primera ves que vimos tsitp haberte dicho que si tu 
+           fueras un personaje de la serie serias 100% sheyla.<br><br>
+           
+           pues sheyla era super cool madura y sus outifts eran los mas increibles 
+           definitivamente y por eso pensaba que serias ella pero pensandolo bien aunque es verdad creo que 
+           hay un personaje que te representa mejor<br><br>
+        </p>
+
+        <button onclick="siguiente()">
+            siguiente
+        </button>
+
+    </div>
+
+<div class="fotosFinal">
+
+<div class="marco">
+    <img src="sheyla.jpg">
+</div>
+<div class="marco">
+    <img src="sheyla2.jpg">
+</div>
+</div>
+</div>
+</div>
+
+<div class="slide" id="s5">
+
+    <div class="contenido final">
+
+        <h1>💌 taylor </h1>
+
+        <p>
+           y ¿porque taylor?bueno en la serie taylor tiene una personalidad fuerte aveces puede parecer dramtica pero es ma ella 
+           actuando desde la emocion y la lealtad, taylor es muy protectora especialmente con belly le gusta divertirse y vivir la vida 
+           intensamente.<br><br>
+           
+           
+           aveces toma decisiones impulsivas y caoticas pero tambion tiene moemtnos sensibles y maduros aveces tiene
+            inseguridades que intenta ocultar con su confianza aplasante y puede pasar de bromear a ponerse seria mmuy rapido <br><br>
+    
+        </p>
+
+        <button onclick="reiniciar()">
+            Volver a empezar
+        </button>
+
+    </div>
+
+<div class="fotosFinal">
+
+<div class="marco">
+    <img src="taylor.jpg">
+</div>
+<div class="marco">
+    <img src="taylor2.jpg">
+</div>
+</div>
+</div>
+</div>
+
+<!-- AUDIO -->
+
+<audio id="musica" loop></audio>
+
+<script>
+
+/* CANCIONES */
+
+let canciones = [
+
+"pretty isnt pretty.mp3",
+
+"https://cdn.pixabay.com/download/audio/2022/08/04/audio_2dde668d05.mp3?filename=beautiful-piano-116199.mp3",
+
+"https://cdn.pixabay.com/download/audio/2022/01/18/audio_d1718ab41b.mp3?filename=emotional-piano-112623.mp3",
+
+"https://cdn.pixabay.com/download/audio/2022/03/10/audio_942f3f3f61.mp3?filename=calm-piano-110397.mp3",
+
+"https://cdn.pixabay.com/download/audio/2022/03/09/audio_57d3d1f5d6.mp3?filename=sad-piano-110389.mp3"
+
+];
+
+let audio = document.getElementById("musica");
+
+/* INICIAR MUSICA */
+
+document.body.addEventListener("click", iniciarAudio, {once:true});
+
+function iniciarAudio(){
+
+    audio.src = canciones[0];
+
+    audio.volume = 0.5;
+
+    audio.play();
+
+}
+
+/* SLIDES */
+
+let actual = 0;
+
+let slides = document.querySelectorAll(".slide");
+
+function actualizarBarra(){
+
+let porcentaje =
+
+((actual + 1) /
+slides.length) * 100;
+
+document
+.getElementById("barra")
+.style.width =
+porcentaje + "%";
+}
+
+function siguiente(){
+
+    slides[actual].classList.remove("activo");
+
+    actual++;
+
+    if(actual >= slides.length){
+
+        actual = 0;
+
+    }
+
+    slides[actual].classList.add("activo");
+    
+
+    audio.src = canciones[actual];
+
+    audio.play();
+actualizarBarra();
+}
+
+/* REINICIAR */
+
+function reiniciar(){
+
+    slides[actual].classList.remove("activo");
+
+    actual = 0;
+
+    slides[actual].classList.add("activo");
+
+    audio.src = canciones[0];
+
+    audio.play();
+ actualizarBarra();
+}
+
+/* ESTRELLAS */
+
+let contenedor = document.getElementById("estrellas");
+
+for(let i=0; i<100; i++){
+
+    let estrella = document.createElement("div");
+
+    estrella.classList.add("estrella");
+
+    estrella.style.left = Math.random()*100 + "%";
+
+    estrella.style.top = Math.random()*100 + "%";
+
+    estrella.style.animationDelay = Math.random()*3 + "s";
+
+    contenedor.appendChild(estrella);
+
+}
+let texto = `
+Hola, Luna.
+
+¿como estas? espero que te encuentres bien da click cuando estes lista
+`;
+
+let i = 0;
+
+function escribir(){
+
+    if(i < texto.length){
+
+        document.getElementById("maquina").innerHTML += texto.charAt(i);
+
+        i++;
+
+        setTimeout(escribir, 80);
+
+    }
+    else{
+        document.getElementById("botonIntro").style.opacity ="1";
+    }
+
+}
+actualizarBarra();
+escribir();
+let inicioX = 0;
+
+document.addEventListener(
+"touchstart",
+e=>{
+
+inicioX =
+e.touches[0].clientX;
+
+}
+);
+
+document.addEventListener(
+"touchend",
+e=>{
+
+let finX =
+e.changedTouches[0].clientX;
+
+if(inicioX - finX > 100){
+
+    siguiente();
+
+}
+
+}
+);
+</script>
+
+</body>
+</html>
